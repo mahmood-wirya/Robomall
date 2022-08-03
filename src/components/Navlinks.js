@@ -6,8 +6,8 @@ export default function Navlinks() {
     <>
       {links.map((links) => (
         <div>
-          <div>
-            <h1>{links.name}</h1>
+          <div className="px-3 text-left md:cursor-pointer">
+            <h1 className="py-7">{links.name}</h1>
           </div>
         </div>
       ))}
