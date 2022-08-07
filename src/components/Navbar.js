@@ -2,26 +2,22 @@ import { Fragment, useState } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 
-import { useLocation,Link } from "react-router-dom";
-
-
-
+import { useLocation, Link } from "react-router-dom";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 export default function Navbar() {
-  const location=useLocation();
+  const location = useLocation();
 
   const [navigation, setNavigation] = useState([
-    { name: 'Home', href: '/', current: true },
-    { name: 'Products', href: '/products', current: false },
-    { name: 'Categories', href: '/categories', current: false },
+    { name: "Home", href: "/", current: true },
+    { name: "Products", href: "/products", current: false },
+    { name: "Categories", href: "/categories", current: false },
   ]);
 
   return (
-
     <Disclosure as="nav" className="bg-white shadow-sm">
       {({ open }) => (
         <>
@@ -59,8 +55,8 @@ export default function Navbar() {
                         to={item.href}
                         className={classNames(
                           location.pathname === item.href
-                            ? "bg-gray-700 text-white"
-                            : "text-black hover:bg-gray-300 hover:text-white",
+                            ? "bg-[#2DBCB7] text-white"
+                            : "text-gray-400 hover:bg-[#437D7B] hover:text-white",
                           "px-3 py-2 rounded-md text-sm font-medium"
                         )}
                         aria-current={item.current ? "page" : undefined}
@@ -72,14 +68,14 @@ export default function Navbar() {
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <button
-                  type="button"
-                  className="bg-gray-800 p-1 rounded-full text-white px-4 hover:bg-gray-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white "
+                <Link
+                  to="/Login"
+                  className="bg-[#2DBCB7] py-2 rounded-full text-white px-4 hover:bg-[#437D7B] hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#3a9895] focus:ring-white "
                 >
                   <span className="sr-only">View notifications</span>
                   {/*<BellIcon className="h-6 w-6" aria-hidden="true" />*/}
                   Login
-                </button>
+                </Link>
 
                 {/* Profile dropdown */}
                 {/*} <Menu as="div" className="ml-3 relative">
@@ -149,8 +145,8 @@ export default function Navbar() {
                   to={item.href}
                   className={classNames(
                     location.pathname === item.href
-                      ? "bg-gray-900 text-white"
-                      : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                      ? "bg-[#2DBCB7] text-white"
+                      : "text-gray-400 hover:bg-[#437D7B] hover:text-white",
                     "block px-3 py-2 rounded-md text-base font-medium text-center w-fit"
                   )}
                   aria-current={item.current ? "page" : undefined}
