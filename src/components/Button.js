@@ -5,3 +5,4 @@ export default function Button() {
    <button className='bg-[#2DBCB7] uppercase rounded-full w-24 h-12 my-7  shadow-md'>sign in</button>
   )
 }
+

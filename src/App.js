@@ -10,7 +10,7 @@ import Register from "./Pages/Register";
 import Product from "./Pages/Product";
 import Products from "./Pages/Products";
 import Categories from "./Pages/Categories";
-import Navbar from "./components/Navbar";
+
 function App() {
   return (
     <div className="App">

@@ -1,9 +1,10 @@
 import React from "react";
+import HeroSection from "../components/HeroSection";
 import Layout from "../Layout/MainLayouts";
 export default function Home() {
   return (
     <Layout>
-      <div className="bg-gray-200">Home</div>
+      <HeroSection />
     </Layout>
   );
 }
