@@ -1,7 +1,7 @@
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
-
+import { useSelector, useDispatch } from "react-redux";
 import { useLocation, Link } from "react-router-dom";
 
 function classNames(...classes) {
@@ -10,12 +10,16 @@ function classNames(...classes) {
 
 export default function Navbar() {
   const location = useLocation();
-
+  const auth = useSelector((state) => state.auth.isAuthenticated);
   const [navigation, setNavigation] = useState([
     { name: "Home", href: "/", current: true },
     { name: "Products", href: "/products", current: false },
     { name: "Categories", href: "/categories", current: false },
   ]);
+
+  useEffect(() => {
+    console.log("the state of auth is:", auth);
+  }, []);
 
   return (
     <Disclosure as="nav" className="bg-white shadow-sm">
@@ -67,16 +71,23 @@ export default function Navbar() {
                   </div>
                 </div>
               </div>
+              
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <Link
-                  to="/Login"
-                  className="bg-[#2DBCB7] py-2 rounded-full text-white px-4 hover:bg-[#437D7B] hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#3a9895] focus:ring-white "
-                >
-                  <span className="sr-only">View notifications</span>
-                  {/*<BellIcon className="h-6 w-6" aria-hidden="true" />*/}
-                  Login
-                </Link>
-
+              {auth ?  ( <Link
+                to="/Login"
+                className="bg-[#2DBCB7] py-2 rounded-full text-white px-4 hover:bg-[#437D7B] hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#3a9895] focus:ring-white "
+              >
+                <span className="sr-only">View notifications</span>
+                Logout
+              </Link>):( <Link
+              to="/Login"
+              className="bg-[#2DBCB7] py-2 rounded-full text-white px-4 hover:bg-[#437D7B] hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#3a9895] focus:ring-white "
+            >
+              <span className="sr-only">View notifications</span>
+              Login
+            </Link>)}
+              
+                        
                 {/* Profile dropdown */}
                 {/*} <Menu as="div" className="ml-3 relative">
                   <div>
