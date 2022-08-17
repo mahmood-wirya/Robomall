@@ -2,7 +2,8 @@ import { Fragment, useState, useEffect } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 import { useSelector, useDispatch } from "react-redux";
-import { useLocation, Link } from "react-router-dom";
+import { useLocation, Link , NavLink } from "react-router-dom";
+import { logout } from '../app/slices/authSlice';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -10,7 +11,9 @@ function classNames(...classes) {
 
 export default function Navbar() {
   const location = useLocation();
-  const auth = useSelector((state) => state.auth.isAuthenticated);
+  const auth = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+
   const [navigation, setNavigation] = useState([
     { name: "Home", href: "/", current: true },
     { name: "Products", href: "/products", current: false },
@@ -54,95 +57,55 @@ export default function Navbar() {
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <Link
+                      <NavLink
                         key={item.name}
                         to={item.href}
-                        className={classNames(
-                          location.pathname === item.href
-                            ? "bg-[#2DBCB7] text-white"
-                            : "text-gray-400 hover:bg-[#437D7B] hover:text-white",
-                          "px-3 py-2 rounded-md text-sm font-medium"
-                        )}
+                        className={({ isActive }) =>
+                        isActive
+                          ? 'bg-[#2DBCB7] text-white px-3 py-2 rounded-md text-sm font-medium'
+                          : 'text-gray-300 hover:bg-[#1e7a77] hover:text-white px-3 py-2 rounded-md text-sm font-medium'
+                      }
                         aria-current={item.current ? "page" : undefined}
                       >
                         {item.name}
-                      </Link>
+                      </NavLink>
                     ))}
                   </div>
                 </div>
               </div>
               
-              <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-              {auth ?  ( <Link
-                to="/Login"
-                className="bg-[#2DBCB7] py-2 rounded-full text-white px-4 hover:bg-[#437D7B] hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#3a9895] focus:ring-white "
-              >
-                <span className="sr-only">View notifications</span>
-                Logout
-              </Link>):( <Link
-              to="/Login"
-              className="bg-[#2DBCB7] py-2 rounded-full text-white px-4 hover:bg-[#437D7B] hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#3a9895] focus:ring-white "
-            >
-              <span className="sr-only">View notifications</span>
-              Login
-            </Link>)}
+              <div className="absolute inset-y-0 right-0 flex flex-row-reverse items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+              {auth.isAuthenticated ? (
+                < >
+                <img className="h-10  rounded-full" src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"/>
+                  <p className="text-black mx-5 ">
+                   
+                     {auth.username}
+                  </p>
+                  <Link
+                    to="/login"
+                    className="bg-[#2DBCB7] p-1 rounded-full text-white px-4 hover:bg-[#1e7a77] hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                    onClick={() => dispatch(logout())}
+                  >
+                    <span className="sr-only">View notifications</span>
+                    {/* <BellIcon className="h-6 w-6" aria-hidden="true" /> */}
+                    Logout
+                  </Link>
+                </>
+              ) : (
+                <Link
+                  to="/login"
+                  className="bg-[#2DBCB7] p-1 rounded-full text-white px-4 hover:bg-[#1e7a77] hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                >
+                  <span className="sr-only">View notifications</span>
+                  {/* <BellIcon className="h-6 w-6" aria-hidden="true" /> */}
+                  Login
+                </Link>
+              )}
+
               
                         
-                {/* Profile dropdown */}
-                {/*} <Menu as="div" className="ml-3 relative">
-                  <div>
-                    <Menu.Button className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-                      <span className="sr-only">Open user menu</span>
-                      <img
-                        className="h-8 w-8 rounded-full"
-                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                        alt=""
-                      />
-                    </Menu.Button>
-                  </div>
-                  <Transition
-                    as={Fragment}
-                    enter="transition ease-out duration-100"
-                    enterFrom="transform opacity-0 scale-95"
-                    enterTo="transform opacity-100 scale-100"
-                    leave="transition ease-in duration-75"
-                    leaveFrom="transform opacity-100 scale-100"
-                    leaveTo="transform opacity-0 scale-95"
-                  >
-                    <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-                      <Menu.Item>
-                        {({ active }) => (
-                          <a
-                            href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                          >
-                            Your Profile
-                          </a>
-                        )}
-                      </Menu.Item>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <a
-                            href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                          >
-                            Settings
-                          </a>
-                        )}
-                      </Menu.Item>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <a
-                            href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                          >
-                            Sign out
-                          </a>
-                        )}
-                      </Menu.Item>
-                    </Menu.Items>
-                  </Transition>
-                        </Menu>*/}
+                
               </div>
             </div>
           </div>
@@ -152,14 +115,13 @@ export default function Navbar() {
               {navigation.map((item) => (
                 <Disclosure.Button
                   key={item.name}
-                  as={Link}
+                  as={NavLink}
                   to={item.href}
-                  className={classNames(
-                    location.pathname === item.href
-                      ? "bg-[#2DBCB7] text-white"
-                      : "text-gray-400 hover:bg-[#437D7B] hover:text-white",
-                    "block px-3 py-2 rounded-md text-base font-medium text-center w-fit"
-                  )}
+                  className={({ isActive }) =>
+                  isActive
+                    ? 'block px-3 py-2 rounded-md text-base font-medium bg-[#2DBCB7] text-white'
+                    : 'block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:bg-[#437D7B] hover:text-white'
+                }
                   aria-current={item.current ? "page" : undefined}
                 >
                   {item.name}

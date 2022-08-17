@@ -1,18 +1,26 @@
 import { ArrowLeftIcon } from "@heroicons/react/outline";
 import { React, useState } from "react";
 import { Link } from "react-router-dom";
+import { login } from '../app/slices/authSlice';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [form, setForm] = useState({});
 
   function submitHandler(e) {
     e.preventDefault();
-    console.log(JSON.stringify(form));
+    dispatch(login(form.username));
+    navigate('/', { replace: true });
   }
   function onChangeHandler(event) {
     const name = event.target.name;
     const value = event.target.value;
     setForm((values) => ({ ...values, [name]: value }));
+
+    console.log(form);
   }
 
   return (
