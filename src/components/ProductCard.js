@@ -3,11 +3,11 @@ import React from "react";
 export default function ProductCard({ product }) {
   return (
     <div className="col-span-3 bg-white p-7 rounded-t-2xl w-[350px] h-full mt-10 shadow-lg">
-      <p className="tracking-widest text-xs title-font font-medium text-gray-400 mb-3">
+      <p className="tracking-widest text-xs title-font font-medium text-gray-300 mb-3">
         In stock
       </p>
       <img
-        src={product.image}
+        src={product.image} alt="products"
         className="h-[200px] w-full object-contain shadow-md rounded-3xl"
       />
       <h2 className="text-lg text-gray-900 font-semibold mt-6">

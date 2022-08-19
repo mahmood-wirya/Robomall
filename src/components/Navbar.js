@@ -63,7 +63,7 @@ export default function Navbar() {
                         className={({ isActive }) =>
                         isActive
                           ? 'bg-[#2DBCB7] text-white px-3 py-2 rounded-md text-sm font-medium'
-                          : 'text-gray-300 hover:bg-[#1e7a77] hover:text-white px-3 py-2 rounded-md text-sm font-medium'
+                          : 'text-gray-400 hover:bg-[#1e7a77] hover:text-white px-3 py-2 rounded-md text-sm font-medium'
                       }
                         aria-current={item.current ? "page" : undefined}
                       >
