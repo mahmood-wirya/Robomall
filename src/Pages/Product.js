@@ -105,7 +105,9 @@ export default function Product() {
                   emptySymbol={grayStar}
                   readonly={true}
                 />
-                <p className="pl-2 pt-1 text-sm title-font text-gray-500 tracking-widest">REVIEWS ({product.rating.count})</p>
+                <p className="pl-2 pt-1 text-sm title-font text-gray-800 tracking-widest">{product.rating.rate}</p>
+                <p className="pl-2 pt-1 text-sm title-font text-gray-400 tracking-widest">({product.rating.count})</p>
+                <p className=" pt-[6px] text-sm title-font text-gray-400 tracking-widest">REVIEWS</p>
               </div>
               <div className="flex">
                 <span className="title-font font-medium text-2xl text-gray-900">
