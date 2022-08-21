@@ -62,7 +62,7 @@ export default function Navbar() {
                         to={item.href}
                         className={({ isActive }) =>
                         isActive
-                          ? 'bg-[#2DBCB7] text-white px-3 py-2 rounded-md text-sm font-medium'
+                          ? 'bg-[#2DBCB7] text-white px-3 shadow-md py-2 rounded-md text-sm font-medium'
                           : 'text-gray-400 hover:bg-[#1e7a77] hover:text-white px-3 py-2 rounded-md text-sm font-medium'
                       }
                         aria-current={item.current ? "page" : undefined}

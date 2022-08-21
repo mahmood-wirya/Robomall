@@ -3,10 +3,10 @@ import ProductCard from "./ProductCard";
 
 export default function ProductsList({ products }) {
   return (
-    <div className=" flex-wrap container mx-auto grid grid-cols-12 gap-[40px]">
+    <span className="flex flex-wrap container mx-auto gap-x-8 justify-center mb-14 ">
       {products.map((product) => {
         return <ProductCard product={product} />;
       })}
-    </div>
-  );
+    </span>
+  ); 
 }

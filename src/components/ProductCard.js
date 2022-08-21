@@ -41,7 +41,7 @@ export default function ProductCard({ product }) {
   return (
     <Link
       to={`/products/${product.id}`}
-      className="col-span-3 bg-white p-7 rounded-3xl w-[350px] h-full mt-10 shadow-lg"
+      className=" bg-white p-7 rounded-3xl w-[350px] h-full mt-10 shadow-lg hover:shadow-2xl"
     >
       <p className="tracking-widest text-xs title-font font-medium text-gray-400 mb-3">
         In stock
