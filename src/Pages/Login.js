@@ -5,6 +5,7 @@ import { login } from '../app/slices/authSlice';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
+
 export default function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -26,9 +27,9 @@ export default function Login() {
   return (
     <div className="relative flex flex-col justify-center min-h-screen overflow-hidden bg-gray-300/30">
       {/* Arrow button to home */}
-      <Link to="/" className="p-6">
-        <ArrowLeftIcon className="h-8 w-8 text-[#2DBCB7] rounded-full" />
-      </Link>
+    <Link to="/" className="p-14">
+    <ArrowLeftIcon className="h-8 w-auto text-[#2DBCB7] rounded-full" />
+  </Link>
       <div className="w-full p-6 m-auto bg-white rounded-md shadow-xl shadow-black/40  ring-2 ring-black-600 lg:max-w-xl">
         <h1 className="text-3xl font-semibold text-center text-[#2DBCB7] uppercase decoration-wavy">
           Sign in
