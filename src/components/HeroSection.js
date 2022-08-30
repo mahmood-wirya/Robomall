@@ -1,4 +1,5 @@
 import React from 'react'
+import Reactcarousel from './Reactcarousel'
 
 export default function HeroSection() {
   return (
@@ -14,8 +15,8 @@ export default function HeroSection() {
           <button className="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded-md text-2xl">Button</button>
         </div>
       </div>
-      <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-      <img className="object-cover object-center rounded-xl shadow-md" alt="hero" src=" https://source.unsplash.com/-mJVc_-2LuI/720x600"></img>
+      <div className="lg:max-w-2xl lg:w-full md:w-1/2 w-5/6">
+     <Reactcarousel />
         
       </div>
     </div>
