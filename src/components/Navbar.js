@@ -4,7 +4,7 @@ import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 import { useSelector, useDispatch } from "react-redux";
 import { useLocation, Link, NavLink } from "react-router-dom";
 import { logout } from "../app/slices/authSlice";
-import { $CombinedState } from "@reduxjs/toolkit";
+
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -20,6 +20,7 @@ export default function Navbar() {
     { name: "Home", href: "/", current: true },
     { name: "Products", href: "/products", current: false },
     { name: "Categories", href: "/categories", current: false },
+    { name: "Services", href: "/services", current: false },
   ]);
 
   useEffect(() => {

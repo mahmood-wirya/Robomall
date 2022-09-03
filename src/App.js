@@ -15,6 +15,7 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { login } from "./app/slices/authSlice";
 import {updatecart} from "./app/slices/cartSlice"
+import Services from "./Pages/Services";
 
 
 function App() {
@@ -54,6 +55,7 @@ function App() {
         <Route path="Products" element={<Products />} />
         <Route path="Categories" element={<Categories />} />
         <Route path="Products/:id" element={<Product />} />
+        <Route path="services" element={<Services />} />
       </Routes>
     </div>
   );
