@@ -1,17 +1,14 @@
 import React from "react";
 import ProductCard from "./ProductCard";
 
-
 export default function ProductsList({ products }) {
   return (
-    <>
-    
-    <div className="flex flex-wrap container mx-auto gap-x-8 justify-center mb-14 ">
-    
-      {products.map((product) => {
-        return <ProductCard product={product} />;
-      })}
+    <div>
+      <div className="flex flex-wrap container mx-auto gap-x-8 justify-center mb-14 ">
+        {products.map((product) => {
+          return <ProductCard  product={product} />;
+        })}
+      </div>
     </div>
-    </>
-  ); 
+  );
 }

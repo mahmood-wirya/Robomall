@@ -69,10 +69,7 @@ export default function ServiceCard({ services }) {
             </p>
           </div>
           <div className="text-center pt-3">
-            <button
-              className="border-2 rounded-lg border-[#2DBCB7] text-[#2DBCB7] p-2  hover:bg-[#2DBCB7] hover:text-white inline-block text-blank"
-            
-              >
+            <button className="border-2 rounded-lg border-[#2DBCB7] text-[#2DBCB7] p-2  hover:bg-[#2DBCB7] hover:text-white inline-block text-blank">
               <ServiceModal services={services} />
             </button>
           </div>

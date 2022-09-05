@@ -23,10 +23,9 @@ export default function ReactSearch() {
   }, []);
 
   useEffect(() => {
-    if(products == ""){
-        return products;
-    }
-    else if (products) {
+    if (products == "") {
+      return products;
+    } else if (products) {
       const filtered = products.map(({ id, title, price, ...rest }) => {
         return { value: price, label: title };
       });

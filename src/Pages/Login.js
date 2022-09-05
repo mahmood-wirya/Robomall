@@ -1,10 +1,9 @@
 import { ArrowLeftIcon } from "@heroicons/react/outline";
 import { React, useState } from "react";
 import { Link } from "react-router-dom";
-import { login } from '../app/slices/authSlice';
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-
+import { login } from "../app/slices/authSlice";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const dispatch = useDispatch();
@@ -14,7 +13,7 @@ export default function Login() {
   function submitHandler(e) {
     e.preventDefault();
     dispatch(login(form.username));
-    navigate('/', { replace: true });
+    navigate("/", { replace: true });
   }
   function onChangeHandler(event) {
     const name = event.target.name;
@@ -27,9 +26,9 @@ export default function Login() {
   return (
     <div className="relative flex flex-col justify-center min-h-screen overflow-hidden bg-gray-300/30">
       {/* Arrow button to home */}
-    <Link to="/" className="p-14">
-    <ArrowLeftIcon className="h-8 w-auto text-[#2DBCB7] rounded-full" />
-  </Link>
+      <Link to="/" className="p-14">
+        <ArrowLeftIcon className="h-8 w-auto text-[#2DBCB7] rounded-full" />
+      </Link>
       <div className="w-full p-6 m-auto bg-white rounded-md shadow-xl shadow-black/40  ring-2 ring-black-600 lg:max-w-xl">
         <h1 className="text-3xl font-semibold text-center text-[#2DBCB7] uppercase decoration-wavy">
           Sign in
@@ -47,7 +46,7 @@ export default function Login() {
               className="block w-full px-4 py-2 mt-2 text-black bg-white border rounded-md focus:border-[#2DBCB7] focus:ring-[#9ededc] focus:outline-none focus:ring focus:ring-opacity-40"
               name="username"
               id="username"
-              value={form.username || ''}
+              value={form.username || ""}
               onChange={onChangeHandler}
             />
           </div>
@@ -63,7 +62,7 @@ export default function Login() {
               className="block w-full px-4 py-2 mt-2 text-black bg-white border rounded-md focus:border-[#2DBCB7] focus:ring-[#9ededc] focus:outline-none focus:ring focus:ring-opacity-40"
               name="password"
               id="password"
-              value={form.password || ''}
+              value={form.password || ""}
               onChange={onChangeHandler}
             />
           </div>

@@ -5,14 +5,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { useLocation, Link, NavLink } from "react-router-dom";
 import { logout } from "../app/slices/authSlice";
 
-
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 export default function Navbar() {
   const location = useLocation();
-  const cart= useSelector((state)=>state.cart)
+  const cart = useSelector((state) => state.cart);
   const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
@@ -31,7 +30,7 @@ export default function Navbar() {
     <Disclosure as="nav" className="bg-white shadow-sm">
       {({ open }) => (
         <>
-          <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 " >
+          <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 ">
             <div className="relative flex items-center justify-between h-16">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
@@ -45,7 +44,6 @@ export default function Navbar() {
                 </Disclosure.Button>
               </div>
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-                
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
@@ -64,20 +62,22 @@ export default function Navbar() {
                     ))}
                   </div>
                 </div>
-                
+
                 <NavLink to="/carts" className="container flex pt-2 pl-8">
-                <p className="pl-3 text-sm text-gray-400">{JSON.stringify(cart.products.length)}</p>
+                  <p className="pl-3 text-sm text-gray-400">
+                    {JSON.stringify(cart.products.length)}
+                  </p>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    class="h-[22px] w-[22px]"
+                    className="h-[22px] w-[22px]"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="gray"
-                    stroke-width="1"
+                    strokeWidth="1"
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
                     />
                   </svg>

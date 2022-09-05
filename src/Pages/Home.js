@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 
 export default function Home() {
   const cart = useSelector((state) => state.cart);
-  
+
   return (
     <Layout>
       <HeroSection />

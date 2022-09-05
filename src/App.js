@@ -10,30 +10,27 @@ import Register from "./Pages/Register";
 import Product from "./Pages/Product";
 import Products from "./Pages/Products";
 import Categories from "./Pages/Categories";
-import axios from "axios"
+import axios from "axios";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { login } from "./app/slices/authSlice";
-import {updatecart} from "./app/slices/cartSlice"
+import { updatecart } from "./app/slices/cartSlice";
 import Services from "./Pages/Services";
 
-
 function App() {
-
   const dispatch = useDispatch();
 
-  useEffect (()=>{
-    const username = localStorage.getItem('username');
-    if(username){
+  useEffect(() => {
+    const username = localStorage.getItem("username");
+    if (username) {
       dispatch(login(username));
     }
-   
-  
-      axios
+
+    axios
       .get(`https://fakestoreapi.com/carts/5`)
       .then((response) => {
         // once the data is back
-        console.log('getUserCart:', response.data);
+        console.log("getUserCart:", response.data);
         dispatch(updatecart(response.data.products));
         // send the cart information to the store
       })
@@ -41,8 +38,6 @@ function App() {
         console.log(err);
       });
   }, []);
-
-
 
   return (
     <div className="App">
