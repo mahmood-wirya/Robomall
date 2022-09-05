@@ -62,8 +62,8 @@ export default function Navbar() {
                     ))}
                   </div>
                 </div>
-
-                <NavLink to="/carts" className="container flex pt-2 pl-8">
+               <div className="container pt-2 pl-8 pr-8  lg:w-auto">
+                <NavLink to="/carts" className="flex">
                   <p className="pl-3 text-sm text-gray-400">
                     {JSON.stringify(cart.products.length)}
                   </p>
@@ -82,6 +82,7 @@ export default function Navbar() {
                     />
                   </svg>
                 </NavLink>
+                </div>
               </div>
 
               <div className="absolute inset-y-0 right-0 flex flex-row-reverse items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">

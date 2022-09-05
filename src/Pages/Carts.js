@@ -42,7 +42,7 @@ export default function Carts() {
               <div className="w-1/4">
                 <img
                   src="https://cdn.tuk.dev/assets/templates/e-commerce-kit/bestSeller3.png"
-                  alt
+                  alt="image"
                   className="w-full h-full object-center object-cover"
                 />
               </div>
@@ -88,7 +88,7 @@ export default function Carts() {
               <div className="w-1/4">
                 <img
                   src="https://cdn.tuk.dev/assets/templates/e-commerce-kit/bestSeller2.png"
-                  alt
+                  alt="img"
                   className="w-full h-full object-center object-cover"
                 />
               </div>
@@ -134,7 +134,7 @@ export default function Carts() {
               <div className="h-full w-1/4">
                 <img
                   src="https://cdn.tuk.dev/assets/templates/e-commerce-kit/bestSeller1.png"
-                  alt
+                  alt="image"
                   className="w-full h-full object-center object-cover"
                 />
               </div>
@@ -177,7 +177,7 @@ export default function Carts() {
               </div>
             </div>
           </div>
-          <div className="xl:w-1/2 md:w-1/3 xl:w-1/4 w-full bg-gray-100 h-full">
+          <div className="xl:w-1/2 md:w-1/3 w-full bg-gray-100 h-full">
             <div className="flex flex-col md:h-screen px-14 py-20 justify-between overflow-y-auto">
               <div>
                 <p className="text-4xl font-black leading-9 text-gray-800">
@@ -208,7 +208,7 @@ export default function Carts() {
                   </p>
                 </div>
                 <button
-                  onClick={() => setShow(!show)}
+                  
                   className="text-base leading-none w-full py-5 bg-gray-800 border-gray-800 border focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-white"
                 >
                   Checkout
