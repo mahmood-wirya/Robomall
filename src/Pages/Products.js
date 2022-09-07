@@ -1,10 +1,11 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import LoadingIcon from "../components/LoadingIcon";
-import ProductsList from "../components/ProductsList";
+import ProductsList from "../components/ProductPage/ProductsList";
 import ReactSearch from "../components/ReactSearch";
 import Layout from "../Layout/MainLayouts";
 import ReactPaginate from "react-paginate";
+import Footer from "../components/Footer";
 export default function Products() {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -107,6 +108,7 @@ export default function Products() {
           renderOnZeroPageCount={null}
         />
       </div>
+      <Footer/>
     </Layout>
   );
 }

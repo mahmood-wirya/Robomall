@@ -1,8 +1,9 @@
 import { React, useEffect, useState } from "react";
-import ServiceList from "../components/ServiceList";
+import ServiceList from "../components/ServicePage/ServiceList";
 import Layouts from "../Layout/MainLayouts";
 import LoadingIcon from "../components/LoadingIcon";
 import axios from "axios";
+import Footer from "../components/Footer";
 
 export default function Services() {
   const [services, setServices] = useState();
@@ -30,6 +31,7 @@ export default function Services() {
         Select your services
       </h1>
       <ServiceList services={services} />
+      <Footer/>
     </Layouts>
   );
 }

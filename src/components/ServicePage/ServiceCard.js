@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Rating from "react-rating";
-import ServiceModal from "../components/ServiceModal";
+import ServiceModal from "./ServiceModal";
 
 const yellowStar = (
   <svg

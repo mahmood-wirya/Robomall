@@ -2,6 +2,7 @@ import { React, useState, useEffect } from "react";
 import Layout from "../Layout/MainLayouts";
 import axios from "axios";
 import LoadingIcon from "../components/LoadingIcon";
+import Footer from "../components/Footer";
 
 export default function Carts() {
   const [cart, setCart] = useState();
@@ -24,6 +25,7 @@ export default function Carts() {
   }
 
   return (
+    
     <Layout>
       <div
         className="w-full absolute z-10 right-0 h-full overflow-x-hidden transform translate-x-0 transition ease-in-out duration-700"
@@ -217,7 +219,11 @@ export default function Carts() {
             </div>
           </div>
         </div>
+        
       </div>
     </Layout>
+    
+    
+    
   );
 }

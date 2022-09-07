@@ -2,7 +2,8 @@ import { React, useEffect, useState } from "react";
 import Layout from "../Layout/MainLayouts";
 import axios from "axios";
 import LoadingIcon from "../components/LoadingIcon";
-import CategoriesList from "../components/CategoriesList";
+import CategoriesList from "../components/CategoriesPage/CategoriesList";
+import Footer from "../components/Footer";
 
 export default function Categories() {
   const [categories, setcategories] = useState();
@@ -30,6 +31,7 @@ export default function Categories() {
         </h1>
         <CategoriesList categories={categories} />
       </div>
+      <Footer />
     </Layout>
   );
 }

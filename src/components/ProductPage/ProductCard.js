@@ -1,7 +1,7 @@
 import React from "react";
 import Rating from "react-rating";
 import { Link } from "react-router-dom";
-import { delimiter } from "../utils/delimiter";
+import { delimiter } from "../../utils/delimiter";
 
 const yellowStar = (
   <svg
