@@ -58,7 +58,7 @@ export default function Products() {
         setIsLoading(false);
       })
       .catch((arr) => {
-        console.log(arr);
+
       });
   }, []);
 
@@ -66,19 +66,17 @@ export default function Products() {
     /* calculations for the react paginate */
 
     const endOffset = itemOffset + itemsPerPage;
-    console.log(`Loading items from ${itemOffset} to ${endOffset}`);
+    
     setCurrentItems(products.slice(itemOffset, endOffset));
 
-    console.log("current items:", currentItems);
+ 
     setPageCount(Math.ceil(products.length / itemsPerPage));
   }, [itemOffset, itemsPerPage, products]);
 
   // Invoke when user click to request another page.
   const handlePageClick = (event) => {
     const newOffset = (event.selected * itemsPerPage) % products.length;
-    console.log(
-      `User requested page number ${event.selected}, which is offset ${newOffset}`
-    );
+    
     setItemOffset(newOffset);
   };
 
@@ -88,7 +86,7 @@ export default function Products() {
 
   return (
     <Layout>
-      <h1 className="title-font sm:text-5xl text-4xl mb-4 font-medium text-gray-400 lowercase pl-12 lg:pl-6 pt-5">
+      <h1 className="title-font sm:text-5xl text-4xl mb-4 font-medium text-gray-400 first-letter:uppercase pl-12 lg:pl-6 pt-5">
         Products
       </h1>
       <ReactSearch />

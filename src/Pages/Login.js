@@ -20,7 +20,7 @@ export default function Login() {
     const value = event.target.value;
     setForm((values) => ({ ...values, [name]: value }));
 
-    console.log(form);
+    
   }
 
   return (

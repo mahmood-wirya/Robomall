@@ -29,13 +29,13 @@ function App() {
     axios
       .get(`https://fakestoreapi.com/carts/5`)
       .then((response) => {
-        // once the data is back
-        console.log("getUserCart:", response.data);
+   
+       
         dispatch(updatecart(response.data.products));
         // send the cart information to the store
       })
       .catch((err) => {
-        console.log(err);
+      
       });
   }, []);
 

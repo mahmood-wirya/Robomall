@@ -27,8 +27,8 @@ export default function Services() {
 
   return (
     <Layouts>
-      <h1 className=" title-font sm:text-5xl text-4xl mb-4 font-medium text-gray-400 lowercase pl-12 lg:pl-6 pt-5">
-        Select your services
+      <h1 className=" title-font sm:text-5xl text-4xl mb-4 font-medium text-gray-400 first-letter:uppercase pl-12 lg:pl-6 pt-5">
+        Select Your Services
       </h1>
       <ServiceList services={services} />
       <Footer/>

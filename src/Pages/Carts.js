@@ -2,7 +2,7 @@ import { React, useState, useEffect } from "react";
 import Layout from "../Layout/MainLayouts";
 import axios from "axios";
 import LoadingIcon from "../components/LoadingIcon";
-import Footer from "../components/Footer";
+
 
 export default function Carts() {
   const [cart, setCart] = useState();
@@ -12,12 +12,12 @@ export default function Carts() {
     axios
       .get(`https://fakestoreapi.com/carts/user/3`)
       .then((response) => {
-        console.log("list of shopping cart:", response.data);
+        
         setCart(response.data);
         setIsLoading(false);
       })
       .catch((arr) => {
-        console.log(arr);
+        
       });
   }, []);
   if (isLoading) {

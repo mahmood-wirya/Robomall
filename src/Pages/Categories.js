@@ -26,8 +26,8 @@ export default function Categories() {
   return (
     <Layout>
       <div>
-        <h1 className="title-font sm:text-5xl text-4xl mb-4 font-medium text-gray-400 lowercase pl-12 lg:pl-6 pt-5">
-          Select category
+        <h1 className="title-font sm:text-5xl text-4xl mb-4 font-medium text-gray-400 first-letter:uppercase pl-12 lg:pl-6 pt-5">
+          Select Category
         </h1>
         <CategoriesList categories={categories} />
       </div>
