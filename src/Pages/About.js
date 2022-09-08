@@ -6,13 +6,13 @@ export default function About() {
   return (
     <Layouts>
     <div className="bg-gradient-to-r from-[#2DBCB7] via-[#287e7d] to-[#106764]  ">
-    <h1 className="title-font sm:text-3xl text-2xl mb-4 ml-20 font-medium text-white pl-12 lg:pl-6 pt-5 first-letter:uppercase">
+    <h1 className="title-font sm:text-3xl text-2xl mb-4 sm:ml-[170px] pl-4 font-medium text-white  lg:pl-6 pt-5 first-letter:uppercase">
       About Us
     </h1>
         <div className=" flex flex-row flex-wrap justify-around">
           <div className="sm:w-1/2 mt-32 space-y-4 ">
-            <h3 className="text-6xl text-white font-semibold px-5 ">RoboMall</h3>
-            <p className="text-base text-white text-justify tracking-wider px-5 ">
+            <h3 className="text-6xl text-white font-semibold pl-4 sm:pl-[75px] ">RoboMall</h3>
+            <p className="text-base text-white text-justify tracking-wider px-5 sm:pl-[75px] ">
               What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the
               printing and typesetting industry. Lorem Ipsum has been the
               industry's standard dummy text ever since the 1500s, when an
@@ -27,7 +27,8 @@ export default function About() {
           </div>
           <div className=" mt-20 ">
             <img
-              className="w-80 h-96 rounded-xl shadow-lg"
+              className="w-80 h-96 rounded-xl shadow-lg sm:mr-20"
+              alt="image"
               src={"https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80"}
             />
           </div>

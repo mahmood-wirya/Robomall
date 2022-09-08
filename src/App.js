@@ -6,7 +6,6 @@ import Home from "./Pages/Home";
 import About from "./Pages/About";
 import Carts from "./Pages/Carts";
 import Login from "./Pages/Login";
-import Register from "./Pages/Register";
 import Product from "./Pages/Product";
 import Products from "./Pages/Products";
 import Categories from "./Pages/Categories";
@@ -16,6 +15,7 @@ import { useEffect } from "react";
 import { login } from "./app/slices/authSlice";
 import { updatecart } from "./app/slices/cartSlice";
 import Services from "./Pages/Services";
+import Feedback from "./Pages/Feedback";
 
 function App() {
   const dispatch = useDispatch();
@@ -46,7 +46,7 @@ function App() {
         <Route path="about" element={<About />} />
         <Route path="Carts" element={<Carts />} />
         <Route path="Login" element={<Login />} />
-        <Route path="Register" element={<Register />} />
+        <Route path="Feedback" element={<Feedback />} />
         <Route path="Products" element={<Products />} />
         <Route path="Categories" element={<Categories />} />
         <Route path="Products/:id" element={<Product />} />
