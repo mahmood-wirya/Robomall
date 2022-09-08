@@ -2,30 +2,8 @@ import React from "react";
 import Layout from "../Layout/MainLayouts";
 import Footer from "../components/Footer";
 import { useFormik } from "formik";
+import * as Yup from 'yup';
 export default function Feedback() {
-
-  const validate = values => {
-    const errors = {};
-    if (!values.name) {
-      errors.name = '* Required';
-    } else if (values.name.length > 15) {
-      errors.name = '* Must be 15 characters or less';
-    }
-  
-    if (!values.message) {
-      errors.message = '* Required';
-    } else if (values.message.length > 180) {
-      errors.message = '* Must be 180 characters or less';
-    }
-  
-    if (!values.email) {
-      errors.email = '* Required';
-    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-      errors.email = '* Invalid email address';
-    }
-  
-    return errors;
-  };
 
 
 
@@ -35,7 +13,16 @@ export default function Feedback() {
       email: "",
       message: "",
     },
-    validate,
+    validationSchema: Yup.object({
+      name: Yup.string()
+        
+        .max(15, 'Must be 15 characters or less')
+        .required('Name is Required'),
+      message: Yup.string()
+        .max(180, 'Must be 180 characters or less')
+        .required('Message is Required'),
+      email: Yup.string().email('Invalid email address').required('Email is Required'),
+    }),
     onSubmit: (values) => {
       // make a post request
 
@@ -91,12 +78,13 @@ export default function Feedback() {
                     type="text"
                     id="name"
                     name="name"
+                    onBlur={formik.handleBlur}
                     onChange={formik.handleChange}
                     value={formik.values.name}
                     className="w-full placeholder:text-gray-300 bg-white rounded border border-gray-300 focus:border-[#2DBCB7]  focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                   />
                   <div >
-                  {formik.errors.name ? <div className="text-white">{formik.errors.name}</div> : null}
+                  {formik.touched.name && formik.errors.name ? <div className="text-white">{formik.errors.name}</div> : null}
                   </div>
                 </div>
                 <div className="relative mb-4">
@@ -105,22 +93,23 @@ export default function Feedback() {
                     type="email"
                     id="email"
                     name="email"
+                    onBlur={formik.handleBlur}
                     onChange={formik.handleChange}
                     value={formik.values.email}
                     className="w-full bg-white placeholder:text-gray-300 rounded border border-gray-300 focus:border-[#2DBCB7]  focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                   />
-                  {formik.errors.email ? <div className="text-white">{formik.errors.email}</div> : null}
+                  {formik.touched.email && formik.errors.email ? <div className="text-white">{formik.errors.email}</div> : null}
                 </div>
                 <div className="relative mb-4">
                   <textarea
                     id="message"
                     name="message"
-                    
+                    onBlur={formik.handleBlur}
                     onChange={formik.handleChange}
                     value={formik.values.message}
                     className="w-full bg-white placeholder:text-gray-300 rounded border border-gray-300 focus:border-[#2DBCB7]  focus:ring-2 focus:ring-green-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
                   ></textarea>
-                  {formik.errors.message ? <div className="text-white">{formik.errors.message}</div> : null}
+                  {formik.touched.message && formik.errors.message ? <div className="text-white">{formik.errors.message}</div> : null}
                 </div>
                 <button
                   type="submit"
