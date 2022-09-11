@@ -3,6 +3,7 @@ import Layout from "../Layout/MainLayouts";
 import Footer from "../components/Footer";
 import { useFormik } from "formik";
 import * as Yup from 'yup';
+import LeafletMap from "../components/LeafletMap";
 export default function Feedback() {
 
 
@@ -36,12 +37,14 @@ export default function Feedback() {
         <h1 className="title-font sm:text-3xl text-2xl mb-4 ml-20 font-medium sm:ml-[170px] text-white pl-12 lg:pl-6 pt-5 first-letter:uppercase">
           Feedback
         </h1>
-        <div className="text-gray-600 body-font relative">
-          <div className="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap">
-            <div className="lg:w-2/3 md:w-1/2 bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative sm:ml-36">
-              {/*the map should be here */}
+        <div className="">
+          <div className="container mx-auto flex sm:flex-nowrap flex-wrap">
+            <div className="lg:w-2/3 md:w-1/2  sm:mr-14 p-10 ">
+            <div className="lg:h-[500px] lg:w-auto">
+            <LeafletMap />
+            </div>
               <div className="bg-white relative flex flex-wrap py-6 rounded shadow-md">
-                <div className="lg:w-1/2 px-6">
+                <div className="lg:w-auto px-6">
                   <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs">
                     ADDRESS
                   </h2>
@@ -64,7 +67,7 @@ export default function Feedback() {
                 </div>
               </div>
             </div>
-            <div className="lg:w-1/3 md:w-1/2  flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0 sm:mr-32">
+            <div className="lg:w-1/3 md:w-1/2  flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0 sm:mr-32 mx-6 mb-10">
               <h2 className="text-white text-lg mb-1 font-medium title-font">
                 Feedback
               </h2>
@@ -73,6 +76,7 @@ export default function Feedback() {
               </p>
               <form onSubmit={formik.handleSubmit}>
                 <div className="relative mb-4">
+               
                   <input
                     placeholder="Name"
                     type="text"
@@ -125,7 +129,9 @@ export default function Feedback() {
             </div>
           </div>
         </div>
+
       </div>
+      
       <Footer />
     </Layout>
   );

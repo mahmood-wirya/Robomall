@@ -1,5 +1,5 @@
 import "./App.css";
-// import Navbar from "./components/Navbar";
+
 import { Routes, Route } from "react-router-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Home from "./Pages/Home";
