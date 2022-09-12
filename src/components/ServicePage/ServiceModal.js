@@ -1,7 +1,10 @@
 import React from "react";
-import ReactDOM from "react-dom";
+
 import Modal from "react-modal";
 import Rating from "react-rating";
+
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+
 
 const yellowStar = (
   <svg
@@ -45,6 +48,8 @@ const customStyles = {
     bottom: "auto",
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
+    overflow:"scroll",
+    height:"800px",
   },
 };
 
@@ -58,7 +63,8 @@ export default function ServiceModal({ services }) {
 
   function afterOpenModal() {
     // references are now sync'd and can be accessed.
-    
+    subtitle.style.color = '#f00';
+
   }
 
   function closeModal() {
@@ -94,8 +100,26 @@ export default function ServiceModal({ services }) {
             </button>
           </div>
           <div className="container px-5 mx-auto flex sm:flex-nowrap flex-wrap ">
-            <div className="lg:w-2/3 md:w-1/2 bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
-              <div>map</div>
+            <div className="lg:w-full md:w-1/2 h-[800px] rounded-lg overflow-hidden sm:mr-10 p-10 flex flex-col items-end  relative">
+          
+            <MapContainer
+              center={[(services.address.geolocation.lat),(services.address.geolocation.long)]}
+              zoom={10}
+              style={{ height: '100%', width: '100% ' }}
+              scrollWheelZoom={false}
+            >
+              <TileLayer
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
+              <Marker position={[(services.address.geolocation.lat),(services.address.geolocation.long)]}>
+                <Popup> 
+                  A pretty CSS3 popup. <br /> Easily customizable.
+                </Popup>
+              </Marker>
+              {/* <LocationMarker /> */}
+            </MapContainer>
+          
               <div className="bg-white relative flex flex-wrap py-6 rounded shadow-md">
                 <div className="lg:w-1/2 px-6">
                   <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs">
