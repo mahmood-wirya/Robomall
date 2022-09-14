@@ -118,7 +118,7 @@ export default function Footer() {
             <h3 className="text-2xl font-bold pt-5 pb-3 text-[#2DBCB7]">
               Contact Us
             </h3>
-            <li>+9647512052061</li>
+            <li>(+964) 751 205 2061</li>
             <li>Mahmudhaji28@gmail.com</li>
             <li></li>
           </ul>

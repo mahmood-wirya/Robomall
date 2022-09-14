@@ -34,7 +34,7 @@ export default function Feedback() {
   return (
     <Layout>
       <div className="bg-gradient-to-r from-[#2DBCB7] via-[#287e7d] to-[#106764]  ">
-        <h1 className="title-font sm:text-3xl text-2xl mb-4 ml-20 font-medium sm:ml-[170px] text-white pl-12 lg:pl-6 pt-5 first-letter:uppercase">
+        <h1 className="title-font sm:text-5xl text-2xl mb-4 ml-20 font-medium sm:ml-[170px] text-white pl-12 lg:pl-6 pt-5 first-letter:uppercase">
           Feedback
         </h1>
         <div className="">
@@ -43,14 +43,13 @@ export default function Feedback() {
             <div className="lg:h-[500px] lg:w-auto">
             <LeafletMap />
             </div>
-              <div className="bg-white relative flex flex-wrap py-6 rounded shadow-md">
+              <div className="bg-white relative flex flex-col py-6 rounded shadow-md">
                 <div className="lg:w-auto px-6">
                   <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs">
                     ADDRESS
                   </h2>
-                  <p className="mt-1">
-                    Photo booth tattooed prism, portland taiyaki hoodie neutra
-                    typewriter
+                  <p className="mt-1 mb-4">
+                    Iraq - Erbil - Sultanmuthafar St.
                   </p>
                 </div>
                 <div className="lg:w-1/2 px-6 mt-4 lg:mt-0">
@@ -58,12 +57,12 @@ export default function Feedback() {
                     EMAIL
                   </h2>
                   <a className="text-[#2DBCB7]  leading-relaxed">
-                    example@email.com
+                  Mahmudhaji28@gmail.com
                   </a>
                   <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">
                     PHONE
                   </h2>
-                  <p className="leading-relaxed">123-456-7890</p>
+                  <p className="leading-relaxed">(+964) 751 205 2061</p>
                 </div>
               </div>
             </div>
@@ -76,9 +75,9 @@ export default function Feedback() {
               </p>
               <form onSubmit={formik.handleSubmit}>
                 <div className="relative mb-4">
-               
+               <label className="leading-7 text-base font-semibold text-white">Name</label>
                   <input
-                    placeholder="Name"
+                    placeholder="jack"
                     type="text"
                     id="name"
                     name="name"
@@ -92,8 +91,9 @@ export default function Feedback() {
                   </div>
                 </div>
                 <div className="relative mb-4">
+                <label className="leading-7 text-base font-semibold text-white">Email</label>
                   <input
-                    placeholder="Email"
+                    placeholder="Jack@company.com"
                     type="email"
                     id="email"
                     name="email"
@@ -105,7 +105,9 @@ export default function Feedback() {
                   {formik.touched.email && formik.errors.email ? <div className="text-white">{formik.errors.email}</div> : null}
                 </div>
                 <div className="relative mb-4">
+                <label className="leading-7 text-base font-semibold text-white">Message</label>
                   <textarea
+                  placeholder="Write your message here..."
                     id="message"
                     name="message"
                     onBlur={formik.handleBlur}

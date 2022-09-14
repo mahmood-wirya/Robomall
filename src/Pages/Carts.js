@@ -28,7 +28,7 @@ export default function Carts() {
     
     <Layout>
       <div
-        className="w-full absolute z-10 right-0 h-full overflow-x-hidden transform translate-x-0 transition ease-in-out duration-700"
+        className="pl-12 lg:pl-6 w-full absolute z-10 right-0 h-full overflow-x-hidden transform translate-x-0 transition ease-in-out duration-700"
         id="checkout"
       >
         <div className="flex md:flex-row flex-col justify-end" id="cart">
@@ -37,9 +37,9 @@ export default function Carts() {
             id="scroll"
           >
             <div className="flex items-center text-gray-500 hover:text-gray-600 cursor-pointer"></div>
-            <p className="text-5xl font-black leading-10 text-gray-800 pt-3">
-              Bag
-            </p>
+            <h1 className="title-font sm:text-5xl text-2xl mb-4 ml-20 font-medium text-gray-400  first-letter:uppercase">
+          Cart
+        </h1>
             <div className="md:flex items-center mt-14 py-8 border-t border-gray-200">
               <div className="w-1/4">
                 <img
@@ -182,7 +182,7 @@ export default function Carts() {
           <div className="xl:w-1/2 md:w-1/3 w-full bg-gray-100 h-full">
             <div className="flex flex-col md:h-screen px-14 py-20 justify-between overflow-y-auto">
               <div>
-                <p className="text-4xl font-black leading-9 text-gray-800">
+                <p className="text-4xl font-black leading-9 text-gray-4 00">
                   Summary
                 </p>
                 <div className="flex items-center justify-between pt-16">
@@ -211,7 +211,7 @@ export default function Carts() {
                 </div>
                 <button
                   
-                  className="text-base leading-none w-full py-5 bg-gray-800 border-gray-800 border focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-white"
+                  className="text-xl font-semibold leading-none w-full py-5 bg-[#2DBCB7] hover:bg-[#1e7a77] border-[#2DBCB7] border focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-white"
                 >
                   Checkout
                 </button>

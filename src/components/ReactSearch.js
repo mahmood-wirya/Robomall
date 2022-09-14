@@ -13,12 +13,12 @@ export default function ReactSearch() {
     axios
       .get("https://fakestoreapi.com/products")
       .then((response) => {
-        console.log("list of products:", response.data);
+        
         setProducts(response.data);
         setIsLoading(false);
       })
       .catch((err) => {
-        console.log(err);
+        
       });
   }, []);
 
@@ -29,7 +29,7 @@ export default function ReactSearch() {
       const filtered = products.map(({ id, title, price, ...rest }) => {
         return { value: price, label: title };
       });
-      console.log("successfully filtered users", filtered);
+      
       setOptions(filtered);
     }
   }, [products]);
